@@ -182,7 +182,7 @@ header {
     url('visivibelogo.jpeg') center center;
   background-size: cover;
   background-attachment: fixed; /* This makes background sticky */
-  padding: 30px 0 60px 0;
+  padding: 60px 0;
   position: relative;
   min-height: 500px;
 }
@@ -381,7 +381,9 @@ footer::before {
   .menu-toggle {
     display: flex;
   }
-  
+  .hero{
+    padding:40px 0 60px 0;
+  }
   .title-img {
     width: 95%;
   }
@@ -415,7 +417,9 @@ footer::before {
   .logo-text {
     font-size: 15px;
   }
-  
+  .title-container{
+    padding:20px 20px 30px 20px;
+  }
   .nav-mobile {
     top: 85px; /* Adjusted to match header height */
   }
@@ -520,19 +524,16 @@ footer::before {
   }
   
   .title-container {
-    padding: 20px 20px 25px 20px; /* Adjusted for small space */
+    padding: 15px 20px 25px 20px; /* Adjusted for small space */
   }
   
   /* Ensure fixed background works on mobile */
   .hero {
-    background-attachment: scroll; /* Fixed background can be problematic on mobile */
+    padding:30px 0 50px 0; /* Fixed background can be problematic on mobile */
   }
   
   /* Fallback for mobile devices that don't support fixed background well */
-  @supports (-webkit-touch-callout: none) {
-    .hero {
-      background-attachment: scroll;
-    }
+  
   }
 }
 </style>
@@ -689,3 +690,4 @@ document.addEventListener('click', (e) => {
 </body>
 
 </html>
+
