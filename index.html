@@ -17,13 +17,13 @@
 body {
   background: #000;
   overflow-x: hidden;
-  padding-top: 80px; /* Reduced from 100px */
+  padding-top: 90px; /* Adjusted for small space */
 }
 
 header {
   background: linear-gradient(135deg, #0f2e35 0%, #1f4a55 100%);
   color: white;
-  padding: 8px 30px; /* Reduced padding */
+  padding: 10px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,7 +33,7 @@ header {
   width: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  height: 80px; /* Fixed height */
+  height: 90px; /* Adjusted for small space */
 }
 
 .logo {
@@ -111,7 +111,7 @@ header {
 .nav-mobile {
   display: none;
   position: fixed;
-  top: 80px; /* Adjusted to match header height */
+  top: 90px; /* Adjusted to match header height */
   left: 0;
   width: 100%;
   background: linear-gradient(135deg, #0f2e35 0%, #1f4a55 100%);
@@ -144,7 +144,7 @@ header {
 }
 
 .title-container {
-  padding: 10px 20px 20px 10px; /* Reduced top padding from 30px to 10px */
+  padding: 25px 20px 30px 20px; /* Added top padding for small space */
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -166,7 +166,6 @@ header {
   width: 90%;
   height: auto;
   margin: 0 auto;
-  position:sticky;
   display: block;
   filter: drop-shadow(0 0 15px rgba(255, 235, 59, 0.3));
   animation: float 3s ease-in-out infinite;
@@ -182,11 +181,10 @@ header {
     linear-gradient(rgba(10, 26, 31, 0.85), rgba(0, 0, 0, 0.9)),
     url('visivibelogo.jpeg') center center;
   background-size: cover;
-  background-attachment: fixed;
-  padding: 20px 0 60px 0; /* Reduced top padding from 60px to 20px */
+  background-attachment: fixed; /* This makes background sticky */
+  padding: 30px 0 60px 0;
   position: relative;
   min-height: 500px;
-  margin-top: -20px; /* Added negative margin to reduce space */
 }
 
 .hero::before {
@@ -251,8 +249,6 @@ header {
   /* Removed transition property */
 }
 
-/* Removed the :hover selector for center-img img */
-
 .countdown {
   display: flex;
   justify-content: space-around;
@@ -268,6 +264,7 @@ header {
 .countdown div {
   text-align: center;
   padding: 10px;
+  flex: 1; /* Equal width for all boxes */
 }
 
 .countdown h1 {
@@ -369,12 +366,12 @@ footer::before {
 
 @media (max-width: 768px) {
   header {
-    padding: 10px 20px; /* Reduced padding */
-    height: 70px; /* Reduced height */
+    padding: 10px 20px;
+    height: 85px; /* Adjusted for small space */
   }
   
   body {
-    padding-top: 60px; /* Reduced from 90px */
+    padding-top: 85px; /* Adjusted for small space */
   }
   
   .nav-desktop {
@@ -420,12 +417,7 @@ footer::before {
   }
   
   .nav-mobile {
-    top: 70px; /* Adjusted to match header height */
-  }
-  
-  .hero {
-    padding-top: 8px; /* Reduced top padding */
-    margin-top: 15px; 
+    top: 85px; /* Adjusted to match header height */
   }
 }
 
@@ -436,15 +428,30 @@ footer::before {
   
   .reminder, .countdown {
     padding: 20px;
+    max-width: 100%;
   }
   
   .countdown {
-    flex-wrap: wrap;
-    gap: 15px;
+    display: flex;
+    flex-wrap: nowrap; /* Changed from wrap to nowrap for straight line */
+    justify-content: space-between;
+    gap: 8px; /* Reduced gap for better fit */
   }
   
   .countdown div {
-    flex: 1 0 calc(50% - 15px);
+    flex: 1;
+    min-width: 0; /* Allow flex items to shrink below content size */
+    padding: 5px; /* Reduced padding */
+  }
+  
+  .countdown h1 {
+    font-size: 20px; /* Reduced font size for mobile */
+    margin-bottom: 2px;
+  }
+  
+  .countdown p {
+    font-size: 10px; /* Reduced font size for mobile */
+    letter-spacing: 0.5px;
   }
   
   .about {
@@ -492,17 +499,17 @@ footer::before {
   }
   
   header {
-    height: 75px; /* Reduced height */
-    min-height: 75px;
-    padding: 8px 15px; /* Reduced padding */
+    height: 85px; /* Consistent height */
+    min-height: 85px;
+    padding: 10px 15px;
   }
   
   body {
-    padding-top: 75px; /* Reduced from 95px */
+    padding-top: 85px; /* Consistent padding */
   }
   
   .nav-mobile {
-    top: 75px; /* Adjusted to match header height */
+    top: 85px; /* Adjusted to match header height */
   }
   
   .menu-toggle {
@@ -512,14 +519,20 @@ footer::before {
     transform: translateY(-50%);
   }
   
-  .hero {
-    padding-top: 5px; /* Reduced top padding */
-    margin-top: -10px; /* Adjusted negative margin */
+  .title-container {
+    padding: 20px 20px 25px 20px; /* Adjusted for small space */
   }
   
-  .title-container {
-    padding: 5px 20px 20px 20px; 
-    
+  /* Ensure fixed background works on mobile */
+  .hero {
+    background-attachment: scroll; /* Fixed background can be problematic on mobile */
+  }
+  
+  /* Fallback for mobile devices that don't support fixed background well */
+  @supports (-webkit-touch-callout: none) {
+    .hero {
+      background-attachment: scroll;
+    }
   }
 }
 </style>
@@ -676,4 +689,3 @@ document.addEventListener('click', (e) => {
 </body>
 
 </html>
-
