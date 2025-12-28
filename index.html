@@ -17,13 +17,13 @@
 body {
   background: #000;
   overflow-x: hidden;
-  padding-top: 100px;
+  padding-top: 80px; /* Reduced from 100px */
 }
 
 header {
   background: linear-gradient(135deg, #0f2e35 0%, #1f4a55 100%);
   color: white;
-  padding: 12px 30px;
+  padding: 8px 30px; /* Reduced padding */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,6 +33,7 @@ header {
   width: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   z-index: 1000;
+  height: 80px; /* Fixed height */
 }
 
 .logo {
@@ -110,7 +111,7 @@ header {
 .nav-mobile {
   display: none;
   position: fixed;
-  top: 100px;
+  top: 80px; /* Adjusted to match header height */
   left: 0;
   width: 100%;
   background: linear-gradient(135deg, #0f2e35 0%, #1f4a55 100%);
@@ -143,7 +144,7 @@ header {
 }
 
 .title-container {
-  padding: 30px 20px;
+  padding: 10px 20px 20px 10px; /* Reduced top padding from 30px to 10px */
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -181,9 +182,10 @@ header {
     url('visivibelogo.jpeg') center center;
   background-size: cover;
   background-attachment: fixed;
-  padding: 60px 0;
+  padding: 20px 0 60px 0; /* Reduced top padding from 60px to 20px */
   position: relative;
   min-height: 500px;
+  margin-top: -20px; /* Added negative margin to reduce space */
 }
 
 .hero::before {
@@ -244,14 +246,11 @@ header {
 .center-img img {
   width: 100%;
   max-width: 400px;
-  transition: transform 0.5s ease;
   opacity: 0.9;
+  /* Removed transition property */
 }
 
-.center-img img:hover {
-  transform: scale(1.03);
-  opacity: 1;
-}
+/* Removed the :hover selector for center-img img */
 
 .countdown {
   display: flex;
@@ -369,8 +368,12 @@ footer::before {
 
 @media (max-width: 768px) {
   header {
-    padding: 15px 20px;
-    height: 90px;
+    padding: 10px 20px; /* Reduced padding */
+    height: 70px; /* Reduced height */
+  }
+  
+  body {
+    padding-top: 60px; /* Reduced from 90px */
   }
   
   .nav-desktop {
@@ -415,12 +418,13 @@ footer::before {
     font-size: 15px;
   }
   
-  body {
-    padding-top: 90px;
+  .nav-mobile {
+    top: 70px; /* Adjusted to match header height */
   }
   
-  .nav-mobile {
-    top: 90px;
+  .hero {
+    padding-top: 8px; /* Reduced top padding */
+    margin-top: 15px; 
   }
 }
 
@@ -487,17 +491,17 @@ footer::before {
   }
   
   header {
-    height: auto;
-    min-height: 85px;
-    padding: 12px 15px;
+    height: 75px; /* Reduced height */
+    min-height: 75px;
+    padding: 8px 15px; /* Reduced padding */
   }
   
   body {
-    padding-top: 95px;
+    padding-top: 75px; /* Reduced from 95px */
   }
   
   .nav-mobile {
-    top: 95px;
+    top: 75px; /* Adjusted to match header height */
   }
   
   .menu-toggle {
@@ -505,6 +509,15 @@ footer::before {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
+  }
+  
+  .hero {
+    padding-top: 5px; /* Reduced top padding */
+    margin-top: -10px; /* Adjusted negative margin */
+  }
+  
+  .title-container {
+    padding: 5px 20px 20px 20px; /* Further reduced top padding */
   }
 }
 </style>
@@ -661,4 +674,3 @@ document.addEventListener('click', (e) => {
 </body>
 
 </html>
-
