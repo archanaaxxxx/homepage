@@ -137,6 +137,14 @@ header {
   border-left: 3px solid transparent;
 }
 
+/* FIXED: Changed from fa-phone-alt to fa-phone and fixed rotation */
+.fa-phone {
+  display: inline-block;
+  transform: rotate(0deg) !important;
+  -webkit-transform: rotate(0deg) !important;
+  margin-top: 1px;
+}
+
 .nav-mobile a:hover {
   background: rgba(255, 235, 59, 0.2);
   border-left: 3px solid #ffeb3b;
@@ -182,7 +190,7 @@ header {
     url('visivibelogo.jpeg') center center;
   background-size: cover;
   background-attachment: fixed; /* This makes background sticky */
-  padding: 60px 0;
+  padding: 30px 0 60px 0;
   position: relative;
   min-height: 500px;
 }
@@ -381,9 +389,7 @@ footer::before {
   .menu-toggle {
     display: flex;
   }
-  .hero{
-    padding:40px 0 60px 0;
-  }
+  
   .title-img {
     width: 95%;
   }
@@ -417,9 +423,7 @@ footer::before {
   .logo-text {
     font-size: 15px;
   }
-  .title-container{
-    padding:20px 20px 30px 20px;
-  }
+  
   .nav-mobile {
     top: 85px; /* Adjusted to match header height */
   }
@@ -524,16 +528,19 @@ footer::before {
   }
   
   .title-container {
-    padding: 15px 20px 25px 20px; /* Adjusted for small space */
+    padding: 20px 20px 25px 20px; /* Adjusted for small space */
   }
   
   /* Ensure fixed background works on mobile */
   .hero {
-    padding:30px 0 50px 0; /* Fixed background can be problematic on mobile */
+    background-attachment: scroll; /* Fixed background can be problematic on mobile */
   }
   
   /* Fallback for mobile devices that don't support fixed background well */
-  
+  @supports (-webkit-touch-callout: none) {
+    .hero {
+      background-attachment: scroll;
+    }
   }
 }
 </style>
@@ -547,7 +554,7 @@ footer::before {
     <img src="facelogo.png" alt="FACE Prep" class="facepreplogo">
     
     <div class="logo-text">
-      <strong>Visionary vibe </strong> 
+      <strong>Visionary vibes </strong> 
       <strong>2026</strong> 
     </div>
   </div>
@@ -557,7 +564,7 @@ footer::before {
     <a href="#"><i class="fas fa-images"></i> Gallery</a>
     <a href="#"><i class="fas fa-calendar-alt"></i> Event</a>
     <a href="#"><i class="fas fa-info-circle"></i> About Us</a>
-    <a href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+    <a href="#"><i class="fas fa-phone"></i> Contact</a>
   </div>
 
   <div class="menu-toggle" id="menuToggle">
@@ -572,7 +579,7 @@ footer::before {
   <a href="#"><i class="fas fa-images"></i> Gallery</a>
   <a href="#"><i class="fas fa-calendar-alt"></i> Event</a>
   <a href="#"><i class="fas fa-info-circle"></i> About Us</a>
-  <a href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+  <a href="#"><i class="fas fa-phone"></i> Contact</a>
 </div>
 
 <section class="hero">
@@ -627,7 +634,7 @@ footer::before {
 </section>
 
 <footer>
-  © 2025 Kamaraj College | FACE Prep Campus | Visionary Vibe Event | All Rights Reserved
+  © 2025 Kamaraj College | FACE Prep Campus | Visionary Vibes Event | All Rights Reserved
 </footer>
 
 <script>
@@ -690,4 +697,3 @@ document.addEventListener('click', (e) => {
 </body>
 
 </html>
-
