@@ -533,13 +533,13 @@ footer::before {
   
   /* Ensure fixed background works on mobile */
   .hero {
-    background-attachment: fixed; /* Fixed background can be problematic on mobile */
+    background-attachment: scroll; /* Fixed background can be problematic on mobile */
   }
   
   /* Fallback for mobile devices that don't support fixed background well */
   @supports (-webkit-touch-callout: none) {
     .hero {
-      background-attachment: scroll;
+      background-attachment: fixed;
     }
   }
 }
@@ -697,4 +697,5 @@ document.addEventListener('click', (e) => {
 </body>
 
 </html>
+
 
